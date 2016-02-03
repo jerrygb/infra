@@ -11,3 +11,4 @@
         - git
         - vim-nox
         - mc
+        - tmux
