@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+#
+# Apply Ansible playbook agains localhost
+#
+. "$(dirname ${0}i)/_shared.sh"
+
+if [ ${#} != 1 ]; then
+  echo "Usage: ${0} ROLE"
+
+  echo
+  echo "Available roles:"
+  ls -1 ${ANSIBLE_PATH}/*.yml | sed 's|.*/|* |;s|\.yml$||'
+  echo
+
+  suicide "Missing role name"
+fi
+
+PLAYBOOK="${ANSIBLE_PATH}/${1}.yml"
+
+ansible-playbook -i 'localhost,' -e local ${PLAYBOOK}

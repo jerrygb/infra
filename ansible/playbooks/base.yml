@@ -1,14 +1,22 @@
 ---
 - hosts: all
-  sudo: yes
+  become: yes
   tasks:
-    - name: Update OS
-      apt: upgrade=dist update_cache=yes
-           dpkg_options='force-confold,force-confdef'
-    - name: Install must-have packages
-      apt: pkg={{ item }} state=latest
-      with_items:
-        - git
-        - vim-nox
-        - mc
-        - tmux
+  - name: Update operating system
+    apt: upgrade=dist update_cache=yes
+         dpkg_options='force-confold,force-confdef'
+    notify:
+      - Remove unneeded packages
+      - Clean package cache
+  - name: Install essential packages
+    apt: pkg={{ item }} state=latest
+    with_items:
+      - git
+      - vim-nox
+      - mc
+      - tmux
+  handlers:
+    - name: Remove unneeded packages
+      shell: apt-get -y autoremove
+    - name: Clean package cache
+      shell: apt-get clean
