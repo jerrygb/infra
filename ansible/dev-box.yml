@@ -1,3 +1,4 @@
 ---
-- hosts: localhost
+- hosts: all
 - include: ./playbooks/base.yml
+- include: ./playbooks/ruby.yml
