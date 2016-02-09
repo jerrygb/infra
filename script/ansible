@@ -17,4 +17,4 @@ fi
 
 PLAYBOOK="${ANSIBLE_PATH}/${1}.yml"
 
-ansible-playbook -i 'localhost,' -e local ${PLAYBOOK}
+ansible-playbook -c local -i 'localhost,' ${PLAYBOOK}
