@@ -1,0 +1,11 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+  - name: Install essential development packages
+    apt: pkg={{ item }} state=latest
+    with_items:
+    - build-essential
+    - zlib1g-dev
+    - libsasl2-dev
+    - libxml2-dev
