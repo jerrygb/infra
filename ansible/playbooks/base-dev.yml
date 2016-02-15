@@ -9,3 +9,4 @@
     - zlib1g-dev
     - libsasl2-dev
     - libxml2-dev
+    - asciidoc
