@@ -3,3 +3,4 @@
 - include: ./playbooks/base.yml
 - include: ./playbooks/base-dev.yml
 - include: ./playbooks/ruby.yml
+- include: ./playbooks/nodejs.yml
