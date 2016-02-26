@@ -1,0 +1,4 @@
+---
+- hosts: all
+- include: ./playbooks/base.yml
+- include: ./playbooks/docker.yml
