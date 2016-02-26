@@ -9,3 +9,7 @@
     - zlib1g-dev
     - libsasl2-dev
     - libxml2-dev
+    - libmariadbclient-dev
+    - libsqlite3-dev
+    - libreadline-dev
+    - libssl-dev
