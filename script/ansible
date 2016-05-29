@@ -1,22 +1,24 @@
 #!/usr/bin/env bash
 #
-# Apply Ansible playbook agains localhost
+# Apply Ansible role playbook against group of hosts
 #
-. "$(dirname ${0}i)/_shared.sh"
+. "$(dirname ${0})/_shared.sh"
 
-if [ ${#} != 1 ]; then
-  echo "Usage: ${0} ROLE"
+if [ ${#} -lt 2 ]; then
+  echo "Usage: ${0} INVENTORY ROLE [ANSIBLE_OPTIONS]"
 
+  echo
+  echo "Available inventories:"
+  ls -1 ${ANSIBLE_INVENTORY_PATH}/* | sed 's|.*/|* |'
   echo
   echo "Available roles:"
-  ls -1 ${ANSIBLE_PATH}/*.yml | sed 's|.*/|* |;s|\.yml$||'
+  ls -1 ${ANSIBLE_ROLE_PATH}/*.yml | sed 's|.*/|* |;s|\.yml$||'
   echo
 
-  suicide "Missing role name"
+  suicide "You need to provide inventory and role!"
 fi
 
-sudo true || suicide "Unable to initialize sudo"
+INVENTORY="${1}" ; shift
+ROLE_NAME="${1}" ; shift
 
-PLAYBOOK="${ANSIBLE_PATH}/${1}.yml"
-
-ansible-playbook -c local -i 'localhost,' ${PLAYBOOK}
+ansible-playbook -i "${ANSIBLE_INVENTORY_PATH}/${INVENTORY}" "${ANSIBLE_ROLE_PATH}/${ROLE_NAME}.yml" --limit=${ROLE_NAME} ${@}

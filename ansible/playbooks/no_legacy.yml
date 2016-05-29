@@ -1,0 +1,16 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+  - name: Remove legacy packages
+    apt: name={{ item }} state=absent force=yes purge=yes
+    with_items:
+      - chef
+      - puppet
+      - puppet-common
+      - puppetlabs-release
+  - name: Remove legacy MotD
+    file: path=/etc/update-motd.d/{{ item }} state=absent
+    with_items:
+      - 51-cyberlynx
+      - 98-knife-status

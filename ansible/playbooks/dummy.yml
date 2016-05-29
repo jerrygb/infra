@@ -1,0 +1,9 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+  - name: Do nothing, collons!
+    shell: /bin/true >nothing
+    args:
+      chdir: /tmp
+      creates: nothing

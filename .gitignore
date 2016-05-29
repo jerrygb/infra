@@ -1,2 +1,5 @@
-# Ignore Vagrant working directory
+# Vagrant working directory
 .vagrant
+
+# Vim swap file
+*.swp
