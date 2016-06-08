@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+#
+# Upload bootstrap script to box and run it!
+#
+BOOTSTRAP_SCRIPT='_bootstrap.sh'
+
+. "$(dirname ${0})/_shared.sh"
+
+if [[ ${#} != 2 ]]; then
+  suicide "Usage: ${0} SSH_HOST[:SSH_PORT] NEW_HOSTNAME"
+fi
+
+SSH_HOST=$(echo ${1} | awk -F":" '{ print $1 }')
+SSH_PORT=$(echo ${1} | awk -F":" '{ print $2 }'); [[ ${SSH_PORT} ]] || SSH_PORT=22
+NEW_HOSTNAME=${2}
+
+set -e
+
+scp -oPort=${SSH_PORT} -oUserKnownHostsFile=/dev/null "$(dirname ${0})/${BOOTSTRAP_SCRIPT}" ${SSH_HOST}:"/tmp/${BOOTSTRAP_SCRIPT}"
+ssh -oPort=${SSH_PORT} -oUserKnownHostsFile=/dev/null ${SSH_HOST} bash /tmp/${BOOTSTRAP_SCRIPT} ${NEW_HOSTNAME}
