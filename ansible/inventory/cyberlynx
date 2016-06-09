@@ -1,6 +1,9 @@
 [ispconfig]
 prometheus.cyberlynx.eu
 
+[operations]
+operations.cyberlynx.eu:2201
+
 [general]
-leviathan.private.cyberlynx.eu
-sphere.private.cyberlynx.eu
+sphere.cyberlynx.eu:2211
+leviathan.cyberlynx.eu:2212
