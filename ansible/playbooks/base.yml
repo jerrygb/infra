@@ -14,7 +14,6 @@
       - git
       - vim-nox
       - mc
-      - tmux
   - name: Disable SSH server password logins
     lineinfile: dest=/etc/ssh/sshd_config
                 regexp="^PasswordAuthentication"
@@ -33,3 +32,5 @@
         warn: no
     - name: Restart SSH server
       service: name=ssh state=restarted
+
+- include: ./tmux.yml
