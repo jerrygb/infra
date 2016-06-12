@@ -14,13 +14,6 @@
       - git
       - vim-nox
       - mc
-  - name: Disable SSH server password logins
-    lineinfile: dest=/etc/ssh/sshd_config
-                regexp="^PasswordAuthentication"
-                line="PasswordAuthentication no"
-                state=present
-    notify:
-      - Restart SSH server
   handlers:
     - name: Remove unneeded packages
       shell: apt-get -y --force-yes autoremove
@@ -30,7 +23,6 @@
       shell: apt-get clean
       args:
         warn: no
-    - name: Restart SSH server
-      service: name=ssh state=restarted
 
+- include: ./ssh.yml
 - include: ./tmux.yml
