@@ -1,0 +1,5 @@
+---
+- hosts: operations
+- include: ../playbooks/no_legacy.yml
+- include: ../playbooks/base.yml
+- include: ../playbooks/docker_engine.yml
