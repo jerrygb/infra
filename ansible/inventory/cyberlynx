@@ -2,8 +2,8 @@
 prometheus.cyberlynx.eu
 
 [operations]
-operations.cyberlynx.eu:2201
+operations.private.cyberlynx.eu
 
 [general]
-sphere.cyberlynx.eu:2301
-leviathan.cyberlynx.eu:2202
+sphere.private.cyberlynx.eu
+leviathan.private.cyberlynx.eu
