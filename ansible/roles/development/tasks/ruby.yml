@@ -1,0 +1,10 @@
+---
+
+- name: Add PPA for Ruby
+  apt_repository: repo={{ ruby.apt_repo }} state=present update_cache=yes
+
+- name: Install Ruby
+  apt: pkg={{ item }} state=latest
+  with_items:
+    - "ruby{{ ruby.version }}"
+    - "ruby{{ ruby.version }}-dev"

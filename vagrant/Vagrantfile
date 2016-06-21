@@ -1,19 +1,6 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-def host
-  unless ENV['HOST']
-    warn("HOST not defined!")
-    exit 1
-  end
-
-  ENV['HOST'].strip
-end
-
-def role
-  host.gsub(/-?[0-9]+\z/, '').gsub('-', '_')
-end
-
 Vagrant.require_version ">= 1.8.1"
 
 # All Vagrant configuration is done below. The "2" in Vagrant.configure
@@ -77,9 +64,9 @@ Vagrant.configure(2) do |config|
 
   config.vm.provision "ansible" do |ansible|
     ansible.verbose   = "v"
-    ansible.playbook  = "../ansible/roles/#{role}.yml"
+    ansible.playbook  = "../ansible/site.yml"
   end
 
-  config.vm.hostname = host                   # Set customized hostname
+  config.vm.hostname = 'infra'                # Set customized hostname
   config.vm.define config.vm.hostname { |d| } # Override default VM name
 end

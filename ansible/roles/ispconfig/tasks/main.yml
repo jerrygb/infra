@@ -1,0 +1,7 @@
+---
+
+- name: Change default DNS TTL
+  shell: "find {{ dns_form_path }} -type f -name '*.php' | xargs sed -i 's/{{ default_ttl }}/{{ correct_ttl }}/g;' && touch {{ ttl_changed_flag }}"
+  args:
+    warn: no
+    creates: "{{ ttl_changed_flag }}"

@@ -1,0 +1,8 @@
+---
+
+ruby:
+  apt_repo: 'ppa:brightbox/ruby-ng'
+  version: '2.2'
+
+nodejs:
+  apt_repo: 'deb https://deb.nodesource.com/node_4.x trusty main'

@@ -1,24 +1,20 @@
 #!/usr/bin/env bash
 #
-# Apply Ansible role playbook against group of hosts
+# Apply Ansible against selected inventory
 #
 . "$(dirname ${0})/_shared.sh"
 
-if [ ${#} -lt 2 ]; then
-  echo "Usage: ${0} INVENTORY ROLE [ANSIBLE_OPTIONS]"
+if [ ${#} -lt 1 ]; then
+  echo "Usage: ${0} INVENTORY [ANSIBLE_OPTIONS]"
 
   echo
   echo "Available inventories:"
   ls -1 ${ANSIBLE_INVENTORY_PATH}/* | sed 's|.*/|* |'
   echo
-  echo "Available roles:"
-  ls -1 ${ANSIBLE_ROLE_PATH}/*.yml | sed 's|.*/|* |;s|\.yml$||'
-  echo
 
-  suicide "You need to provide inventory and role!"
+  suicide "You need to provide inventory!"
 fi
 
 INVENTORY="${1}" ; shift
-ROLE_NAME="${1}" ; shift
 
-ansible-playbook -i "${ANSIBLE_INVENTORY_PATH}/${INVENTORY}" "${ANSIBLE_ROLE_PATH}/${ROLE_NAME}.yml" --limit=${ROLE_NAME} ${@}
+ansible-playbook -b -i "${ANSIBLE_INVENTORY_PATH}/${INVENTORY}" "${ANSIBLE_PATH}/site.yml" ${@}

@@ -1,0 +1,23 @@
+---
+
+- name: Update operating system
+  apt: upgrade=dist update_cache=yes
+       dpkg_options='force-confold,force-confdef'
+  notify:
+    - Remove unneeded packages
+    - Clean package cache
+
+- name: Install essential packages
+  apt: pkg={{ item }} state=latest
+  with_items:
+    - git
+    - vim-nox
+    - mc
+    - tmux
+
+- name: Create tmux system-level config
+  copy: src=../files/etc/tmux.conf
+        dest=/etc/tmux.conf
+        owner=root
+        group=root
+        mode=0644

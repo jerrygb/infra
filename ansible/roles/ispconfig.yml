@@ -1,5 +1,0 @@
----
-- hosts: ispconfig
-- include: ../playbooks/no_legacy.yml
-- include: ../playbooks/base.yml
-- include: ../playbooks/ispconfig.yml

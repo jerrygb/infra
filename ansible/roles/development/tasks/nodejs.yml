@@ -1,0 +1,10 @@
+---
+
+- name: Add Apt repository for Node.js
+  apt_repository: repo="{{ nodejs.apt_repo }}"
+                  state=present
+                  filename='nodesource'
+                  update_cache=yes
+
+- name: Install Node.js
+  apt: pkg=nodejs state=latest

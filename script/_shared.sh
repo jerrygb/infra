@@ -8,7 +8,6 @@ popd >/dev/null
 export SCRIPT_PATH="${WORK_PATH}/script"
 export ANSIBLE_PATH="${WORK_PATH}/ansible"
 export ANSIBLE_INVENTORY_PATH="${ANSIBLE_PATH}/inventory"
-export ANSIBLE_ROLE_PATH="${ANSIBLE_PATH}/roles"
 
 #
 # Die with style and grace! ;)

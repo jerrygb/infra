@@ -1,0 +1,11 @@
+---
+
+- name: Remove unneeded packages
+  shell: apt-get -y --force-yes autoremove
+  args:
+    warn: no
+
+- name: Clean package cache
+  shell: apt-get clean
+  args:
+    warn: no

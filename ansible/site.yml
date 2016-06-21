@@ -1,0 +1,5 @@
+---
+# file: site.yml (keep it short)
+- include: general.yml
+- include: operations.yml
+- include: ispconfig.yml

@@ -1,0 +1,6 @@
+---
+
+default_ttl: 86400
+correct_ttl: 300
+dns_form_path: "/usr/local/ispconfig/interface/web/dns/form"
+ttl_changed_flag: "{{ dns_form_path }}/.ttl_changed"

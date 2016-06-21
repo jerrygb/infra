@@ -1,4 +1,0 @@
----
-- hosts: all
-- include: ../playbooks/no_legacy.yml
-- include: ../playbooks/base.yml

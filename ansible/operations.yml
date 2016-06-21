@@ -1,0 +1,5 @@
+---
+- hosts: operations
+  roles:
+    - development
+    - docker_engine
