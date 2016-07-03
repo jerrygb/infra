@@ -1,1 +1,2 @@
-## Compact All-in-One DevOps infrastructure
+## Infra
+Compact All-in-One DevOps infrastructure
