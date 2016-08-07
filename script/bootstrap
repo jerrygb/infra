@@ -16,5 +16,5 @@ NEW_HOSTNAME=${2}
 
 set -e
 
-scp -oPort=${SSH_PORT} -oUserKnownHostsFile=/dev/null "$(dirname ${0})/${BOOTSTRAP_SCRIPT}" ${SSH_HOST}:"/tmp/${BOOTSTRAP_SCRIPT}"
-ssh -oPort=${SSH_PORT} -oUserKnownHostsFile=/dev/null ${SSH_HOST} bash /tmp/${BOOTSTRAP_SCRIPT} ${NEW_HOSTNAME}
+scp -oPort=${SSH_PORT} -oStrictHostKeyChecking=no -oUserKnownHostsFile=/dev/null "$(dirname ${0})/${BOOTSTRAP_SCRIPT}" ${SSH_HOST}:"/tmp/${BOOTSTRAP_SCRIPT}"
+ssh -oPort=${SSH_PORT} -oStrictHostKeyChecking=no -oUserKnownHostsFile=/dev/null ${SSH_HOST} bash /tmp/${BOOTSTRAP_SCRIPT} ${NEW_HOSTNAME}
