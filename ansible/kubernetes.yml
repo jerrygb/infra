@@ -1,0 +1,4 @@
+---
+- hosts: k8s-nodes
+  roles:
+    - docker_engine

@@ -3,3 +3,4 @@
 - include: general.yml
 - include: operations.yml
 - include: ispconfig.yml
+- include: kubernetes.yml
