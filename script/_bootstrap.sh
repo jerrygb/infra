@@ -14,7 +14,7 @@ fi
 
 NEW_HOSTNAME=${1}
 
-set -x
+set -ex
 
 # Rename host
 sudo sed -i "s/default-linux/${NEW_HOSTNAME}/g;" /etc/hosts /etc/hostname
