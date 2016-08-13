@@ -2,3 +2,5 @@
 - hosts: k8s-nodes
   roles:
     - docker_engine
+    - kube_deploy
+    - kubernetes_node

@@ -1,0 +1,7 @@
+---
+
+- name: Get Kubernetes cluster deployment code
+  git: repo={{ kube_deploy.url }}
+       dest={{ kube_deploy.path }}
+       version={{kube_deploy.version }}
+       force=yes

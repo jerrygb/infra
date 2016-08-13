@@ -1,0 +1,15 @@
+---
+
+- name: Upstart config - kubelet-mount task
+  copy: src=../files/etc/init/kubelet-mount.conf
+        dest=/etc/init/kubelet-mount.conf
+        owner=root
+        group=root
+        mode=0644
+
+- name: Upstart config - Docker 'bootstrap' instance
+  copy: src=../files/etc/init/docker-bootstrap.conf
+        dest=/etc/init/docker-bootstrap.conf
+        owner=root
+        group=root
+        mode=0644

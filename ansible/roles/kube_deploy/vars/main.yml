@@ -1,0 +1,6 @@
+---
+
+kube_deploy:
+  url: "https://github.com/ivanilves/kube-deploy.git"
+  path: "/opt/kube-deploy"
+  version: "deploy"

@@ -3,3 +3,4 @@
   roles:
     - development
     - docker_engine
+    - kubernetes_node
