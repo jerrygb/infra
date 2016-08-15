@@ -1,6 +1,6 @@
 ---
 # file: site.yml (keep it short)
-- include: general.yml
-- include: operations.yml
-- include: ispconfig.yml
-- include: kubernetes.yml
+- include: playbooks/general.yml
+- include: playbooks/operations.yml
+- include: playbooks/ispconfig.yml
+- include: playbooks/kubernetes.yml
