@@ -1,0 +1,9 @@
+{
+  "rabbitmq": [{
+    "host": "{{ rabbitmq.host }}",
+    "port": {{ rabbitmq.port}},
+    "user": "{{ rabbitmq.user }}",
+    "password": "{{ vault_sensu_rabbitmq_password }}",
+    "vhost": "{{ rabbitmq.vhost }}"
+  }]
+}
