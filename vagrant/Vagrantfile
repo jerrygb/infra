@@ -48,7 +48,7 @@ Vagrant.configure(2) do |config|
   config.vm.provider "virtualbox" do |vb|
     vb.name   = "vagrant-infra-#{config.vm.hostname}"
     vb.cpus   = 2
-    vb.memory = 512
+    vb.memory = ENV['MEM'] ? ENV['MEM'].to_i : 1024
   end
   #
   # View the documentation for the provider you are using for more
@@ -68,6 +68,6 @@ Vagrant.configure(2) do |config|
     ansible.raw_arguments = ['--become']
   end
 
-  config.vm.hostname = 'infra'                # Set customized hostname
+  config.vm.hostname = 'qa'                   # Set customized hostname
   config.vm.define config.vm.hostname { |d| } # Override default VM name
 end
