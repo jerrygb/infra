@@ -17,4 +17,4 @@ fi
 
 INVENTORY="${1}" ; shift
 
-ansible-playbook -b -i "${ANSIBLE_INVENTORY_PATH}/${INVENTORY}" "${ANSIBLE_PATH}/site.yml" ${@}
+ansible-playbook -b --ask-vault-pass -e "@${ANSIBLE_PATH}/vault.yml" -i "${ANSIBLE_INVENTORY_PATH}/${INVENTORY}" "${ANSIBLE_PATH}/site.yml" ${@}
