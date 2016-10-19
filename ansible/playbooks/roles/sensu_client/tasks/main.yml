@@ -32,3 +32,12 @@
 
 - name: Ensure Sensu client enabled and started
   service: name=sensu-client enabled=yes state=started
+
+- name: Create Sensu plugins installation file
+  copy: src=../files/etc/sensu/plugins.install
+        dest=/etc/sensu/plugins.install
+        owner=root
+        group=root
+        mode=0644
+  notify:
+    - Install Sensu plugins

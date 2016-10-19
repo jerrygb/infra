@@ -2,3 +2,6 @@
 
 - name: Restart Sensu client
   service: name=sensu-client state=restarted
+
+- name: Install Sensu plugins
+  shell: xargs -i /usr/bin/sensu-install -p {} < /etc/sensu/plugins.install
