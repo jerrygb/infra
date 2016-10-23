@@ -1,3 +1,6 @@
+[pve]
+pve-zero.private.cyberlynx.eu ansible_user=root
+
 [ispconfig]
 prometheus.private.cyberlynx.eu
 
