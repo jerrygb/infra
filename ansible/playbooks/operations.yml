@@ -1,6 +1,7 @@
 ---
 - hosts: operations
   roles:
+    - sensu_api
     - development
     - docker_engine
     - kubernetes_node

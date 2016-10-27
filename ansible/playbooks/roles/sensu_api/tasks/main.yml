@@ -1,0 +1,13 @@
+---
+
+- name: Create Sensu API config file
+  template: src=./templates/etc/sensu/conf.d/api.json.j2
+            dest=/etc/sensu/conf.d/api.json
+            owner=sensu
+            group=sensu
+            mode=0644
+  notify:
+    - Restart Sensu API
+
+- name: Ensure Sensu API enabled and started
+  service: name=sensu-api enabled=yes state=started

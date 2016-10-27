@@ -1,8 +1,5 @@
 ---
 
-- name: Install Sensu client
-  apt: name=sensu state=latest
-
 - name: Create Sensu client config file
   template: src=../templates/etc/sensu/conf.d/client.json.j2
             dest=/etc/sensu/conf.d/client.json

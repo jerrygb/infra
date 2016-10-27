@@ -1,0 +1,4 @@
+---
+
+- name: Restart Sensu API
+  service: name=sensu-api state=restarted

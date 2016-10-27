@@ -9,6 +9,9 @@
   apt_repository: repo='deb https://sensu.global.ssl.fastly.net/apt sensu main'
                   state=present update_cache=yes
 
+- name: Install Sensu framework
+  apt: name=sensu state=latest
+
 - name: Create Sensu transport config file
   template: src=../templates/etc/sensu/conf.d/transport.json.j2
             dest=/etc/sensu/conf.d/transport.json
