@@ -1,0 +1,19 @@
+---
+
+- name: Import Sensu repo key
+  apt_key: keyserver=p80.pool.sks-keyservers.net
+           id=EB9C94BB
+           state=present
+
+- name: Add Sensu repo
+  apt_repository: repo='deb https://sensu.global.ssl.fastly.net/apt sensu main'
+                  state=present update_cache=yes
+
+- name: Create Sensu transport config file
+  template: src=../templates/etc/sensu/conf.d/transport.json.j2
+            dest=/etc/sensu/conf.d/transport.json
+            owner=sensu
+            group=sensu
+            mode=0640
+  notify:
+    - Restart already running Sensu components

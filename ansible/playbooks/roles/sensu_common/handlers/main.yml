@@ -1,0 +1,8 @@
+---
+
+- name: Restart already running Sensu components
+  shell: "/etc/init.d/{{ item }} status && /etc/init.d/{{ item }} restart || true"
+  with_items:
+    - sensu-client
+    - sensu-server
+    - sensu-api

@@ -1,7 +1,2 @@
 ---
 
-rabbitmq:
-  host: "rabbitmq.private.cyberlynx.eu"
-  port: 5672
-  user: "sensu"
-  vhost: "/sensu"

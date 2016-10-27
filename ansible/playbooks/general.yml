@@ -3,4 +3,5 @@
   roles:
     - common
     - ssh
+    - sensu_common
     - sensu_client
