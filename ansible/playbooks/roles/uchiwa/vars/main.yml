@@ -1,0 +1,16 @@
+---
+
+host: "0.0.0.0"
+port: 3000
+loglevel: "info"
+refresh: 10
+user: "admin"
+pass: "{{ vault_uchiwa_password }}"
+
+api:
+  name: "CyberLynx"
+  host: "10.145.30.10"
+  port: 4567
+  user: "sensu"
+  pass: "{{ vault_sensu_api_password }}"
+  timeout: 10

@@ -2,6 +2,7 @@
 - hosts: operations
   roles:
     - sensu_api
+    - uchiwa
     - development
     - docker_engine
     - kubernetes_node

@@ -1,0 +1,20 @@
+{
+  "sensu": [
+    {
+      "name": "{{ api.name }}",
+      "host": "{{ api.host }}",
+      "port": {{ api.port }},
+      "user": "{{ api.user }}",
+      "pass": "{{ api.pass }}",
+      "timeout": {{ api.timeout }}
+    }
+  ],
+  "uchiwa": {
+    "host": "{{ host }}",
+    "port": {{ port }},
+    "loglevel": "{{ loglevel }}",
+    "user": "{{ user }}",
+    "pass": "{{ pass }}",
+    "refresh": {{ refresh }}
+  }
+}
