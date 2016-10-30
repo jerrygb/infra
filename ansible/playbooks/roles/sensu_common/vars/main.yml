@@ -6,3 +6,8 @@ rabbitmq:
   user: "sensu"
   password: "{{ vault_sensu_rabbitmq_password }}"
   vhost: "/sensu"
+
+redis:
+  host: "redis"
+  port: 6379
+  password: "{{ vault_sensu_redis_password }}"
