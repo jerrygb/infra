@@ -1,0 +1,22 @@
+---
+
+- name: Create Sensu checks file
+  template: src=./templates/etc/sensu/conf.d/checks.json.j2
+            dest=/etc/sensu/conf.d/checks.json
+            owner=sensu
+            group=sensu
+            mode=0640
+  notify:
+    - Restart Sensu server
+
+- name: Create Sensu handlers file
+  template: src=./templates/etc/sensu/conf.d/handlers.json.j2
+            dest=/etc/sensu/conf.d/handlers.json
+            owner=sensu
+            group=sensu
+            mode=0644
+  notify:
+    - Restart Sensu server
+
+- name: Ensure Sensu server enabled and started
+  service: name=sensu-server enabled=yes state=started

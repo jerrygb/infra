@@ -6,6 +6,8 @@
   notify:
     - Remove unneeded packages
     - Clean package cache
+  tags:
+    - slow
 
 - name: Install essential packages
   apt: pkg={{ item }} state=latest

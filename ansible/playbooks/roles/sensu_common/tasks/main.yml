@@ -27,5 +27,6 @@
             owner=sensu
             group=sensu
             mode=0640
+  when: (sensu_server is defined and sensu_server) or (sensu_api is defined and sensu_api)
   notify:
     - Restart already running Sensu components

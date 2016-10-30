@@ -1,4 +1,4 @@
 ---
 
 dependencies:
-  - sensu_common
+  - { role: sensu_common, sensu_api: true }

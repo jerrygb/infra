@@ -1,0 +1,21 @@
+{
+  "handlers": {
+    "default": {
+      "type": "set",
+      "handlers": ["mailer"]
+    },
+    "mailer": {
+      "type": "pipe",
+      "command": "handler-mailer.rb"
+    }
+  },
+
+  "mailer": {
+    "admin_gui": "{{ mailer.admin_gui }}",
+    "mail_from": "{{ mailer.mail_from }}",
+    "mail_to": "{{ mailer.mail_to }}",
+    "smtp_address": "{{ mailer.smtp_address }}",
+    "smtp_port": {{ mailer.smtp_port }},
+    "smtp_domain": "{{ mailer.smtp_domain }}"
+  }
+}

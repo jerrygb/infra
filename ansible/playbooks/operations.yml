@@ -1,6 +1,7 @@
 ---
 - hosts: operations
   roles:
+    - sensu_server
     - sensu_api
     - uchiwa
     - development
