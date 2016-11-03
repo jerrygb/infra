@@ -2,11 +2,11 @@
 
 checks:
   cpu:
-    command: "check-cpu.rb -w 80 -c 90"
+    command: "check-cpu.rb -w 90 -c 95"
     subscribers: ["ALL"]
     interval: 60
   memory_percent:
-    command: "check-memory-percent.rb -w 80 -c 90"
+    command: "check-memory-percent.rb -w 90 -c 95"
     subscribers: ["ALL"]
     interval: 60
   swap_percent:
@@ -14,7 +14,7 @@ checks:
     subscribers: ["ALL"]
     interval: 60
   disk_usage:
-    command: "check-disk-usage.rb -w 80 -c 90"
+    command: "check-disk-usage.rb -w 90 -c 95"
     subscribers: ["ALL"]
     interval: 60
 
