@@ -9,7 +9,7 @@ pass: "{{ vault_uchiwa_password }}"
 
 api:
   name: "CyberLynx"
-  host: "10.145.30.10"
+  host: "127.0.0.1"
   port: 4567
   user: "sensu"
   pass: "{{ vault_sensu_api_password }}"
